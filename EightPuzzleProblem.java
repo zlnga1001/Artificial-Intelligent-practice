@@ -69,19 +69,54 @@ public class EightPuzzleProblem extends SearchProblem {
 
         EightPuzzleState currentState = (EightPuzzleState) state;
         int[][] puzzle = currentState.getPuzzle();
-        int heuristic = 0;
+        int distance = 0;
 
-        // Manhattan Distance heuristic
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                int value = puzzle[i][j];
-                if (value != 0) {
-                    int goalRow = (value - 1) / 3;
-                    int goalCol = (value - 1) % 3;
-                    heuristic += Math.abs(goalRow - i) + Math.abs(goalCol - j);
+         // Calculating Manhattan distance for each tile
+         for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                int value = puzzle[row][col];
+                if (value != 0) { // Ignore empty tile (0)
+                    int goalRow = 0, goalCol = 0;
+                    switch (value) {
+                        case 1:
+                            goalRow = 0;
+                            goalCol = 0;
+                            break;
+                        case 2:
+                            goalRow = 0;
+                            goalCol = 1;
+                            break;
+                        case 3:
+                            goalRow = 0;
+                            goalCol = 2;
+                            break;
+                        case 4:
+                            goalRow = 1;
+                            goalCol = 2;
+                            break;
+                        case 5:
+                            goalRow = 2;
+                            goalCol = 2;
+                            break;
+                        case 6:
+                            goalRow = 2;
+                            goalCol = 1;
+                            break;
+                        case 7:
+                            goalRow = 2;
+                            goalCol = 0;
+                            break;
+                        case 8:
+                            goalRow = 1;
+                            goalCol = 0;
+                            break;
+                    }
+                    // Add the Manhattan distance for this tile
+                    distance += Math.abs(row - goalRow) + Math.abs(col - goalCol);
                 }
             }
         }
-        return heuristic;
+
+        return distance;
     }
 }
