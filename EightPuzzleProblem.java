@@ -7,7 +7,7 @@ public class EightPuzzleProblem extends SearchProblem {
     private final EightPuzzleState initialState;
     private static final int[][] GOAL_STATE = {
         {1, 2, 3},
-        {8, 4, 0},
+        {8, 0, 4},
         {7, 6, 5}
     };
 

@@ -1,3 +1,16 @@
+/*
+ * EvalPuzzleState.java
+ * 
+ * Author: Nga Vu
+ * Spring 2025
+ * 
+ *  main() method in a class called EvalEightPuzzle which will run each of the three search algorithms
+on each puzzle, and output the path cost of the solution (if found), number of nodes
+expanded, number of nodes generated, and time to perform the search (note, the search()
+method will automatically output this information).
+ * 
+ */
+
 import search.*;
 
 public class EvalEightPuzzle {
@@ -5,18 +18,18 @@ public class EvalEightPuzzle {
         int[][] initial1 = {
             {7, 1, 4},
             {6, 3, 2},
-            {8, 5, 0}
+            {0, 8, 5}
         };
 
         int[][] initial2 = {
             {4, 8, 2},
             {6, 3, 5},
-            {1, 7, 0}
+            {1, 0, 7}
         };
 
         int[][] initial3 = {
             {7, 5, 3},
-            {6, 4, 0},
+            {6, 0, 4},
             {8, 1, 2}
         };
 

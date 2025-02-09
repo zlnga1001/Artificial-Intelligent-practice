@@ -1,3 +1,34 @@
+
+/**
+ * EightPuzzleState.java
+ * 
+ * Author: Nga Vu
+ * Spring 2025
+ * 
+ * P/s: long & detail comment for looking at the code later
+ * 
+ * Description:
+ * This class represents a **state** in the **8-puzzle problem**, storing 
+ * 3x3 grid where `0` represents the empty tile. It supports state comparison,
+ * movement of tiles, and creating new states for search algorithms.
+ * 
+ * Features:
+ * - Stores the **puzzle configuration** and **empty tile position**.
+ * - Implements **equals()** and **hashCode()** for proper state comparison.
+ * - Allows **moving tiles** and generates **new states** for search algorithms.
+ * - Provides a **toString()** method for easy debugging and visualization.
+ * 
+ * Methods:
+ * - `equals(Object obj)`: Compares two states for equality.
+ * - `hashCode()`: Generates a unique hash code for hashing data structures.
+ * - `toString()`: Converts the puzzle into a readable string format.
+ * - `move(int newRow, int newCol)`: Moves the empty tile and returns a new state.
+ * - `deepCopy(int[][] original)`: Creates a deep copy of the puzzle array.
+ * - `getPuzzle()`: Returns the current puzzle configuration.
+ * 
+ */
+
+
 import search.*;
 import java.util.*;
 
@@ -45,13 +76,12 @@ public class EightPuzzleState extends State {
         return true; //all element are same
     }
     
-        // HashCode is required for hash-based data structures (like HashSet)
     @Override
     public int hashCode() {
         return Arrays.deepHashCode(puzzle);
     }
-    
-    // ToString() method for debugging
+
+    // ToString() for debugging
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
